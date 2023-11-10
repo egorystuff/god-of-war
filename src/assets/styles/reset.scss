@@ -58,3 +58,12 @@ li {
   width: 1420px;
   margin: 0 auto;
 }
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}

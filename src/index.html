@@ -18,14 +18,14 @@
   <body>
     <section class="section section-main">
       <div class="container">
-        <header class="header">
-          <div class="header-menu">
+        <header class="header flex">
+          <div class="header-menu flex">
             <div class="header-menu__button">
               <span></span>
             </div>
 
             <nav class="header-menu__list">
-              <ul>
+              <ul class="flex flex-center">
                 <li><a class="header-menu__link menu-link" href="#editions">editions</a></li>
                 <li><a class="header-menu__link menu-link" href="#controller">controller</a></li>
                 <li><a class="header-menu__link menu-link" href="#about">about</a></li>
@@ -35,12 +35,59 @@
                 <li>
                   <div class="header-menu__link lang">
                     <span class="current-lang">english</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                      <path
+                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+                    </svg>
+                    <div class="header-menu__languages">
+                      <div class="header-menu__language">Русский</div>
+                      <div class="header-menu__language">Englich</div>
+                    </div>
                   </div>
                 </li>
               </ul>
             </nav>
           </div>
+
+          <div class="header-timer flex flex-center">
+            <span>Release:</span>
+            <div class="header-timer__values flex flex-center">
+              <div class="header-timer__item">
+                <div class="header-timer__item-value" id="days">0</div>
+                <div class="header-timer__item-info">D</div>
+              </div>
+
+              <div class="header-timer__item">
+                <div class="header-timer__item-value" id="hours">0</div>
+                <div class="header-timer__item-info">H</div>
+              </div>
+
+              <div class="header-timer__item">
+                <div class="header-timer__item-value" id="minutes">0</div>
+                <div class="header-timer__item-info">M</div>
+              </div>
+
+              <div class="header-timer__item">
+                <div class="header-timer__item-value" id="seconds">0</div>
+                <div class="header-timer__item-info">S</div>
+              </div>
+            </div>
+          </div>
         </header>
+
+        <div class="description">
+          <div class="description-title">
+            <h1>God of War: Ragnarök</h1>
+            <div class="description-subtitle">
+              Taking place three years following the events of the previous game, Fimbulwinter, a great winter that
+              spans three summers, is drawing to a close which will begin the prophesied Ragnarök.
+            </div>
+
+            <div class="description-button">
+              <span>buy now</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </body>
