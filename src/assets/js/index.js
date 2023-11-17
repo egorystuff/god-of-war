@@ -2,6 +2,8 @@ import "../styles/reset.scss";
 import "../styles/mixins.scss";
 import "../styles/styles.scss";
 
+import { languages } from "./languages";
+
 // core version + navigation, pagination modules:
 import Swiper from "swiper";
 import { Navigation } from "swiper/modules";
@@ -9,6 +11,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 // import "swiper/css/navigation";
 // import "swiper/css/pagination";
+// -----------------------------------------------------------------------------------------------------
 
 let isPlay = false;
 const checkboxes = {
@@ -29,6 +32,9 @@ const menuButton = document.querySelector(".header-menu__button");
 const video = document.getElementById("video");
 const videoButton = document.querySelector(".video-btn");
 const checkbox = document.querySelectorAll(".checkbox");
+const faqItem = document.querySelectorAll(".faq-item");
+const sections = document.querySelectorAll(".section");
+const language = document.querySelectorAll(".language");
 
 // -----------------------------------------------------------------------------------------------------
 // functions toggle menu
@@ -120,11 +126,50 @@ const initSlider = () => {
   });
 };
 
+// functions for faq
+const handleFaqItem = ({ currentTarget: target }) => {
+  target.classList.toggle(classes.opened);
+  const isOpened = target.classList.contains(classes.opened);
+  const height = target.querySelector("p").clientHeight;
+  const content = target.querySelector(".faq-item__content");
+
+  content.style.height = `${isOpened ? height : 0}px`;
+};
+
+// functions for animations
+const handleScroll = () => {
+  const { scrollY: y, innerHeight: h } = window;
+  sections.forEach((section) => {
+    if (y > section.offsetTop - h) section.classList.remove(classes.hidden);
+  });
+};
+
+// functions for change language
+const setText = () => {
+  const lang = localStorage.getItem("lang") || "en";
+  const content = languages[lang];
+
+  Object.entries(content).forEach(([key, value]) => {
+    const items = document.querySelectorAll(`[data-text = "${key}"]`);
+    items.forEach((item) => (item.innerText = value));
+  });
+};
+
+const toggleLanguage = ({ target }) => {
+  const { lang } = target.dataset;
+  if (!lang) return;
+  localStorage.setItem("lang", lang);
+  setText();
+};
 // -----------------------------------------------------------------------------------------------------
 
 initSlider();
-startTimer("2023-11-29T00:00:00");
+setText();
+startTimer("2023-11-30T00:00:00");
 menuButton.addEventListener("click", toggleMenu);
 videoButton.addEventListener("click", handleVideo);
 menuLink.forEach((link) => link.addEventListener("click", scrollToSection));
 checkbox.forEach((box) => box.addEventListener("click", handleCheckbox));
+faqItem.forEach((item) => item.addEventListener("click", handleFaqItem));
+window.addEventListener("scroll", handleScroll);
+language.forEach((lang) => lang.addEventListener("click", toggleLanguage));
