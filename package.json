@@ -1,15 +1,17 @@
 {
   "name": "god-of-war",
   "version": "1.0.0",
-  "description": "",
+  "description": "[DESIGN IN FIGMA](https://www.figma.com/file/WPk5N8ONd0DGuKWBUjkS6i/Untitled?node-id=0%3A1&t=twlYBy6NvhnKtNUU-0)",
   "main": "index.js",
   "scripts": {
+    "deploy": "gh-pages -d build",
     "dev": "webpack serve"
   },
-  "author": "",
+  "author": "Yahor Yahkovets",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^6.8.1",
+    "gh-pages": "^6.1.0",
     "html-webpack-plugin": "^5.5.3",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
@@ -21,5 +23,13 @@
   },
   "dependencies": {
     "swiper": "^11.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egorystuff/god-of-war.git"
+  },
+  "bugs": {
+    "url": "https://github.com/egorystuff/god-of-war/issues"
+  },
+  "homepage": "https://github.com/egorystuff/god-of-war"
 }
